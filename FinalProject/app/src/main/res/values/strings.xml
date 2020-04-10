@@ -16,4 +16,7 @@
     <string name="slide_5_description">Why to wait? get your dream body today!</string>
     <string name="app_shared_preference">com.example.fittobe</string>
     <string name="app_shared_preference_key">com.example.fittobe.key</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">Start</string>
 </resources>

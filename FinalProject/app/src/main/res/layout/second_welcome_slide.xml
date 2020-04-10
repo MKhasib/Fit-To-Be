@@ -16,7 +16,7 @@
         android:layout_marginTop="@dimen/first_slide_image_top"
         android:scaleType="centerCrop"
 
-        android:src="@drawable/muscles" />
+        android:src="@drawable/gym" />
 
     <TextView
         android:id="@+id/slide_title"

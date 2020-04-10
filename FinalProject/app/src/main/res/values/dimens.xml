@@ -4,7 +4,13 @@
     <dimen name="first_slide_image_top">150dp</dimen>
     <dimen name="large_text_size">34sp</dimen>
     <dimen name="default_text_size">24sp</dimen>
+    <dimen name="small_text_size">18sp</dimen>
     <dimen name="slide_description_margin_start">30sp</dimen>
     <dimen name="slide_description_margin_end">30sp</dimen>
     <dimen name="slide_text_top">20dp</dimen>
+    <dimen name="bottom_layout_margin">55sp</dimen>
+    <dimen name="horizontal_splitter">2dp</dimen>
+    <dimen name="horizontal_splitter_margin_bottom">15dp</dimen>
+    <dimen name="circle">16dp</dimen>
+    <dimen name="button_margin_bottom">16dp</dimen>
 </resources>
