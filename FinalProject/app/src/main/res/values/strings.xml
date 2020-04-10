@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">FitToBe</string>
-    <string name="first_use">firstUse</string>
+
+    <string name="slide_1_title">Discover New You !</string>
+    <string name="slide_1_description">Are you tired of all the promises that tells you can lose fat in just a few days?</string>
+
+    <string name="slide_2_title">Fit To Be</string>
+    <string name="slide_2_description">Explore amazing features with multiple exercising videos</string>
+
+    <string name="slide_3_title">Try For Free</string>
+    <string name="slide_3_description">No subscription needed, all it needs your determination to get your dream body !</string>
+
+    <string name="slide_4_title">Be A VIP</string>
+    <string name="slide_4_description">VIP users get premium features by free registering</string>
+    <string name="slide_5_title">Meet Me At The Bar</string>
+    <string name="slide_5_description">Why to wait? get your dream body today!</string>
+    <string name="app_shared_preference">com.example.fittobe</string>
+    <string name="app_shared_preference_key">com.example.fittobe.key</string>
 </resources>

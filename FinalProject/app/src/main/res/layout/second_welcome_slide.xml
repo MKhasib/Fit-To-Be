@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/color_slide_2"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/slide_image"
+        android:layout_width="@dimen/first_slide_image"
+        android:layout_height="@dimen/first_slide_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/first_slide_image_top"
+        android:scaleType="centerCrop"
+
+        android:src="@drawable/muscles" />
+
+    <TextView
+        android:id="@+id/slide_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slide_image"
+        android:gravity="center_horizontal"
+        android:text="@string/slide_2_title"
+        android:layout_marginTop="@dimen/slide_text_top"
+        android:textColor="@color/white"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/slide_2_description"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/slide_text_top"
+
+        android:textSize="@dimen/default_text_size"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/slide_title"
+        android:layout_marginStart="@dimen/slide_description_margin_start"
+        android:layout_marginEnd="@dimen/slide_description_margin_end"/>
+</RelativeLayout>
+</ScrollView>
