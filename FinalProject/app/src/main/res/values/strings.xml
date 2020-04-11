@@ -19,4 +19,9 @@
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="start">Start</string>
+    <string name="signed_up_key">isSginedUp</string>
+    <string name="try_free">Try Free</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="open_main_activity_free">free trail</string>
 </resources>

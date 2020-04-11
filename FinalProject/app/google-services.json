@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "795558638554",
+    "firebase_url": "https://fittobe-2071f.firebaseio.com",
+    "project_id": "fittobe-2071f",
+    "storage_bucket": "fittobe-2071f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795558638554:android:e7ced1b362ee51fec9c6e3",
+        "android_client_info": {
+          "package_name": "com.example.fittobe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795558638554-bit3f558r9ic6jdgei1t1n9jj4jp20ge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fittobe",
+            "certificate_hash": "25755f91309007759fac285c9bce8aadeb4ba36d"
+          }
+        },
+        {
+          "client_id": "795558638554-4nsv00ad2ks9g1k280c2o1kvcg171e3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsJs5-Zeee1RFbnolPz6z5cE2OmUECfUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795558638554-4nsv00ad2ks9g1k280c2o1kvcg171e3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

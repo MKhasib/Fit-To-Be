@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_slide_1"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".StartUpActivity">
+<TextView
+    android:layout_width="@dimen/default_button_width"
+    android:layout_height="wrap_content"
+    android:text="@string/app_name"
+    android:textSize="@dimen/extra_large_text_size"
+    android:fontFamily="@font/dancingsciprt"
+    android:textColor="@color/white"
+    android:gravity="center"
+    android:layout_gravity="center"/>
+    <ImageView
+        android:layout_width="@dimen/first_slide_image"
+        android:layout_height="@dimen/first_slide_image"
+        android:layout_gravity="center"
+        android:src="@drawable/body" />
+
+    <Button
+        android:id="@+id/try_free_button"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:background="@drawable/rounded_button"
+        android:text="@string/try_free"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+
+        android:textSize="@dimen/small_text_size" />
+
+    <Button
+        android:id="@+id/go_to_sign_in_button"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:background="@drawable/rounded_button"
+        android:text="@string/sign_in"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:textSize="@dimen/small_text_size" />
+
+
+    <Button
+        android:id="@+id/go_to_sign_up_button"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:background="@drawable/rounded_button"
+        android:text="@string/sign_up"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/small_text_size" />
+
+</LinearLayout>

@@ -21,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import butterknife.BindBool;
-import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -57,7 +56,7 @@ public class WelcomeActivity extends AppCompatActivity {
         SharedPreferences.Editor edit = mSharedPreferences.edit();
         edit.putBoolean(getString(R.string.app_shared_preference_key), Boolean.TRUE);
         edit.commit();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, StartUpActivity.class));
         finish();
     }
 
@@ -92,7 +91,6 @@ public class WelcomeActivity extends AppCompatActivity {
         mViewPager.setAdapter(mPagerAdapter);
         createDots(0);
         color = getResources().getString(R.color.color_slide_1);
-
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(color)));
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

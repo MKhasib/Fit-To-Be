@@ -13,4 +13,7 @@
     <dimen name="horizontal_splitter_margin_bottom">15dp</dimen>
     <dimen name="circle">16dp</dimen>
     <dimen name="button_margin_bottom">16dp</dimen>
+    <dimen name="button_margin_top">50dp</dimen>
+    <dimen name="default_button_width">250dp</dimen>
+    <dimen name="extra_large_text_size">48sp</dimen>
 </resources>
