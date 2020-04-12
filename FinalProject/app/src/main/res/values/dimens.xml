@@ -16,4 +16,6 @@
     <dimen name="button_margin_top">50dp</dimen>
     <dimen name="default_button_width">250dp</dimen>
     <dimen name="extra_large_text_size">48sp</dimen>
+    <dimen name="text_margin_top">50dp</dimen>
+    <dimen name="sign_up_margin_top">20dp</dimen>
 </resources>

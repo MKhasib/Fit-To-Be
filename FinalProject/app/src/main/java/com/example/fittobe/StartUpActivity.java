@@ -42,14 +42,18 @@ public class StartUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_up);
         ButterKnife.bind(this);
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String s=mSharedPreferences.getString(getString(R.string.email_key),getString(R.string.null_temp));
+        if(!mSharedPreferences.getString(getString(R.string.email_key),getString(R.string.null_temp)).equals(getString(R.string.null_temp))) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
         enterMainActivity=mSharedPreferences.getBoolean(getString(R.string.open_main_activity_free), false);
         if(enterMainActivity)
         {
             loadTryFree();
         }
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         previouslySignedUp = mSharedPreferences.getBoolean(getString(R.string.signed_up_key), false);
         if (previouslySignedUp) {
         mGoToSignInButton.setVisibility(View.VISIBLE);

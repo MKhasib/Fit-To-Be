@@ -4,6 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/sign_up_color"
+    android:orientation="vertical"
     tools:context=".SignUpActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/slide_description_margin_start"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:text="@string/sign_up"
+        android:textColor="@color/light_grey"
+        android:textSize="@dimen/large_text_size" />
+
+    <EditText
+        android:id="@+id/full_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        android:hint="@string/full_name"
+        android:textColorHint="@color/light_grey"
+
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size" />
+    <EditText
+        android:id="@+id/email"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        android:hint="@string/email"
+        android:textColorHint="@color/light_grey"
+
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_text_size" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/light_grey"
+
+        android:textSize="@dimen/default_text_size" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/age"
+            android:textColorHint="@color/light_grey"
+
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="@string/age"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:maxLength="2"
+            android:textSize="@dimen/default_text_size" />
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:textColorHint="@color/light_grey"
+
+            android:layout_height="wrap_content"
+            android:hint="@string/weight"
+            android:maxLength="6"
+            android:inputType="numberDecimal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up"
+        android:textSize="@dimen/default_text_size"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="@dimen/sign_up_margin_top"/>
 </LinearLayout>

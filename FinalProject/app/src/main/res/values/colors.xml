@@ -15,4 +15,6 @@
     <color name="orange">#cd4203</color>
     <color name="green">#4CAF50</color>
     <color name="light_green">#1ee9a4</color>
+    <color name="sign_up_color">#52788A</color>
+    <color name="light_grey">#D3D3D3</color>
 </resources>
