@@ -32,7 +32,7 @@ public class StartUpActivity extends AppCompatActivity {
     @OnClick(R.id.try_free_button)
     public void loadTryFree(){
         SharedPreferences.Editor edit = mSharedPreferences.edit();
-        edit.putBoolean(getString(R.string.open_main_activity_free), Boolean.TRUE);
+        edit.putBoolean(getString(R.string.logged_in), true);
         edit.commit();
         startActivity(new Intent(this, MainActivity.class));
         finish();
@@ -44,12 +44,7 @@ public class StartUpActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String s=mSharedPreferences.getString(getString(R.string.email_key),getString(R.string.null_temp));
-        if(!mSharedPreferences.getString(getString(R.string.email_key),getString(R.string.null_temp)).equals(getString(R.string.null_temp))) {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-        }
-        enterMainActivity=mSharedPreferences.getBoolean(getString(R.string.open_main_activity_free), false);
+        enterMainActivity=mSharedPreferences.getBoolean(getString(R.string.logged_in), false);
         if(enterMainActivity)
         {
             loadTryFree();
@@ -57,7 +52,7 @@ public class StartUpActivity extends AppCompatActivity {
         previouslySignedUp = mSharedPreferences.getBoolean(getString(R.string.signed_up_key), false);
         if (previouslySignedUp) {
         mGoToSignInButton.setVisibility(View.VISIBLE);
-        mTryFreeButton.setVisibility(View.INVISIBLE);
+        mTryFreeButton.setVisibility(View.GONE);
         }
     }
 }

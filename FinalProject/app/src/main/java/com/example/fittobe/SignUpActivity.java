@@ -114,11 +114,10 @@ public class SignUpActivity extends AppCompatActivity {
                 {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit();
-                    editor.putBoolean(getString(R.string.signed_up_key), true);
-                    editor.commit();
+                    editor.putBoolean(getString(R.string.logged_in), true);
                     editor.putString(getString(R.string.email_key),mEmail);
-                    editor.commit();
                     editor.putString(getString(R.string.password_key),mPassword);
+                    editor.putBoolean(getString(R.string.signed_up_key),true);
                     editor.commit();
                     FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
                     DatabaseReference mDatabaseReference=mFirebaseDatabase.getReference().child("users");

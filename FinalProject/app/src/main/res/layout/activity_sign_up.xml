@@ -15,7 +15,7 @@
         android:layout_marginStart="@dimen/slide_description_margin_start"
         android:layout_marginTop="@dimen/button_margin_top"
         android:text="@string/sign_up"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/white"
         android:textSize="@dimen/large_text_size" />
 
     <EditText

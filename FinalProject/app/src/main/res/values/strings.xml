@@ -41,4 +41,5 @@
     <string name="password_key">password</string>
     <string name="null_temp">null</string>
     <string name="invalid">invalid email or password</string>
+    <string name="logged_in">looged</string>
 </resources>
