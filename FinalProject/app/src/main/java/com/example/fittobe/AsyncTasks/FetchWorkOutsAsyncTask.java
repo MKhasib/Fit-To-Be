@@ -7,6 +7,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 
 import com.example.fittobe.Models.Exercise;
+import com.example.fittobe.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,16 +22,21 @@ import static android.content.ContentValues.TAG;
 public class FetchWorkOutsAsyncTask extends AsyncTask<Void, Void, List<Exercise>> {
     private DatabaseReference mDatabaseReference;
     private List<Exercise> exercises;
-    private String type = "men/workouts/";
+    private static final String men = "men/workouts/";
+    private static final String women = "women/workouts/";
+    private  String default_type =men;
 
-    public FetchWorkOutsAsyncTask() {
+    public FetchWorkOutsAsyncTask(String type) {
         exercises = new ArrayList<>();
-
+    if(type.equals("Female"))
+    {
+        default_type=women;
+    }
     }
 
     @Override
     protected List<Exercise> doInBackground(Void... voids) {
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference(type);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference(default_type);
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

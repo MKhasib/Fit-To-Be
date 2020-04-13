@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void callTheAsyncTask() {
-        new FetchWorkOutsAsyncTask() {
+        new FetchWorkOutsAsyncTask(type) {
             @Override
             protected void onPostExecute(List<Exercise> result) {
                 super.onPostExecute(result);
