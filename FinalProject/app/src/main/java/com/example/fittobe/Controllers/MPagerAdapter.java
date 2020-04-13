@@ -1,4 +1,4 @@
-package com.example.fittobe;
+package com.example.fittobe.Controllers;
 
 import android.content.Context;
 import android.graphics.Color;

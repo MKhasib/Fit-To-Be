@@ -1,4 +1,4 @@
-package com.example.fittobe;
+package com.example.fittobe.Views;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
+
+import com.example.fittobe.R;
 
 public class SimpleDialog extends AppCompatDialogFragment {
     String email_key;

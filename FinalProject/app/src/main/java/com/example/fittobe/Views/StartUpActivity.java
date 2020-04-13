@@ -1,4 +1,4 @@
-package com.example.fittobe;
+package com.example.fittobe.Views;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.fittobe.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

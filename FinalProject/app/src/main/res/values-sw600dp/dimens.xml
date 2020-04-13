@@ -17,6 +17,13 @@
     <dimen name="extra_large_text_size">56sp</dimen>
     <dimen name="text_margin_top">70dp</dimen>
     <dimen name="sign_up_margin_top">40dp</dimen>
+    <dimen name="default_card_margin">30dp</dimen>
+    <dimen name="default_card_radius">15dp</dimen>
+    <dimen name="default_card_elevation">8dp</dimen>
+    <dimen name="default_text_width">300dp</dimen>
+    <dimen name="default_text_height">90dp</dimen>
+    <dimen name="default_text_margin_start">30dp</dimen>
+    <dimen name="default_star_size">80dp</dimen>
 
 
 </resources>
