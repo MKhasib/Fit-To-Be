@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.fittobe.AsyncTasks.FetchWorkOutsAsyncTask;
 import com.example.fittobe.Controllers.WorkOutsAdapter;
 import com.example.fittobe.Models.Exercise;
 import com.example.fittobe.R;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
     private WorkOutsAdapter mWorkOutsAdapter;
-    private ArrayList<Exercise> mAllExercises = new ArrayList<>();
+    private List<Exercise> mAllExercises = new ArrayList<>();
     private List<Exercise> mFavoriteExercises = new ArrayList<>();
 
     Context mContext;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         null_temp = getString(R.string.null_temp);
         mContext=getApplicationContext();
         initializeRecyclerView();
+        callTheAsyncTask();
     }
 
     private void initializeRecyclerView() {
@@ -61,12 +64,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
                 int position = viewHolder.getAdapterPosition();
-//                Intent n = new Intent(context, .class);
-//                Gson gson = new Gson();
-//                n.putExtra(Exercise.class.getName(), gson.toJson(mExercisesAdapter.getExercises().get(position)));
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                    startActivity(n, bundle);
-//                }
+                Intent intent = new Intent(MainActivity.this, WorkOutActivity.class);
+                intent.putExtra(getString(R.string.workout_name),mAllExercises.get(position).getName());
+                intent.putExtra(getString(R.string.workout_id),mAllExercises.get(position).getVideoId());
+                    startActivity(intent);
+
             }
         });
 
@@ -93,7 +95,17 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    private void callTheAsyncTask(){
+        new FetchWorkOutsAsyncTask(){
+            @Override
+            protected void onPostExecute(List<Exercise> result) {
+                super.onPostExecute(result);
+                mAllExercises=result;
+                mWorkOutsAdapter.setExercises(result);
+                mWorkOutsAdapter.notifyDataSetChanged();
+            }
+        }.execute();
+    }
     private void LogOut() {
             editor = mSharedPreferences.edit();
             SimpleDialog simpleDialog = new SimpleDialog(editor);

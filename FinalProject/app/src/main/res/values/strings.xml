@@ -51,4 +51,7 @@
     <string name="tag">tag</string>
     <string name="button_ok">ok</string>
     <string name="workouts">Workouts</string>
+    <string name="start_time">Start Time</string>
+    <string name="workout_name">name</string>
+    <string name="workout_id">id</string>
 </resources>

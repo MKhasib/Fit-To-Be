@@ -4,11 +4,11 @@ public class Exercise {
 
 
     private String name;
-    private String video_url;
-
+    private String videoId;
+    public Exercise(){}
     public Exercise(String name, String video_url) {
         this.name = name;
-        this.video_url = video_url;
+        this.videoId = video_url;
     }
 
     public String getName() {
@@ -19,19 +19,19 @@ public class Exercise {
         this.name = name;
     }
 
-    public String getVideo_url() {
-        return video_url;
+    public String getVideoId() {
+        return videoId;
     }
 
-    public void setVideo_url(String video_url) {
-        this.video_url = video_url;
+    public void setVideoId(String videoId) {
+        this.videoId = videoId;
     }
 
     @Override
     public String toString() {
         return "Exercise{" +
                 "name='" + name + '\'' +
-                ", video_url='" + video_url + '\'' +
+                ", video_url='" + videoId + '\'' +
                 '}';
     }
 }

@@ -10,15 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Views.SignInActivity"></activity>
-        <activity android:name=".Views.SignUpActivity"></activity>
+        <activity android:name=".Views.WorkOutActivity"></activity>
+        <activity android:name=".Views.SignInActivity" />
+        <activity android:name=".Views.SignUpActivity" />
         <activity
             android:name=".Views.StartUpActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Views.WelcomeActivity">
-
-        </activity>
+        <activity android:name=".Views.WelcomeActivity"></activity>
         <activity android:name=".Views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
