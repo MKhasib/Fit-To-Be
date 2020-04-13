@@ -42,4 +42,12 @@
     <string name="null_temp">null</string>
     <string name="invalid">invalid email or password</string>
     <string name="logged_in">looged</string>
+    <string name="menu_description">Settings Menu</string>
+    <string name="favorite_exercises">Favorite workouts</string>
+    <string name="all_exercises">All workouts</string>
+    <string name="log_out">Log Out</string>
+    <string name="check_me">are you sure you want to leave?</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="tag">tag</string>
+    <string name="button_ok">ok</string>
 </resources>
