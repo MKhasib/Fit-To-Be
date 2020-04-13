@@ -81,7 +81,13 @@
             android:inputType="numberDecimal"
             android:textColor="@color/white"
             android:textSize="@dimen/default_text_size" />
+        ,ٍ<Spinner
+        android:id="@+id/spinner_ginder"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
 
+        android:layout_height="wrap_content"
+        android:autofillHints="@string/gender"/>
     </LinearLayout>
     <Button
         android:id="@+id/sign_up_button"

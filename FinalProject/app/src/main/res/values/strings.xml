@@ -54,4 +54,6 @@
     <string name="start_time">Start Time</string>
     <string name="workout_name">name</string>
     <string name="workout_id">id</string>
+    <string name="gender">Male</string>
+    <string name="female">Female</string>
 </resources>

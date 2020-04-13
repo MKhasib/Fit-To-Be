@@ -1,6 +1,7 @@
 package com.example.fittobe.Models;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class User {
     private String fullName;
@@ -8,13 +9,16 @@ public class User {
     private String password;
     private int age;
     private double weight;
+    private String gender;
+    private List<Exercise> favoriteExercises;
 
-    public User(String fullName, String email, String password, int age, double weight) {
+    public User(String fullName, String email, String password, int age, double weight, String gender) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.age = age;
         this.weight = weight;
+        this.gender = gender;
     }
 
     public String getFullName() {
@@ -57,6 +61,22 @@ public class User {
         this.weight = weight;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public List<Exercise> getFavoriteExercises() {
+        return favoriteExercises;
+    }
+
+    public void setFavoriteExercises(List<Exercise> favoriteExercises) {
+        this.favoriteExercises = favoriteExercises;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -65,6 +85,8 @@ public class User {
                 ", password='" + password + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +
+                ", gender='" + gender + '\'' +
+                ", favoriteExercises=" + favoriteExercises +
                 '}';
     }
 }

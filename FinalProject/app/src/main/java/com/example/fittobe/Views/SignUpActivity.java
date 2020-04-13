@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +31,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity implements
+        AdapterView.OnItemSelectedListener {
     private static final String emailRegex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private static final String fullNameRegex = "[a-zA-Z ]+";
     private static final String characterRegex = ".*[a-zA-Z].*";
@@ -36,7 +41,8 @@ public class SignUpActivity extends AppCompatActivity {
     @BindView(R.id.sign_up_button)
     Button mSignUpButton;
 
-
+    @BindView(R.id.spinner_ginder)
+    Spinner spinner;
 
     @BindView(R.id.full_name)
     EditText mFullNameEditText;
@@ -48,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText mAgeEditText;
     @BindView(R.id.weight)
     EditText mWeightEditText;
+    String[] gender = { "Male", "Female"};
 
     private FirebaseAuth mAuth;
     @Override
@@ -56,11 +63,24 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
         mAuth = FirebaseAuth.getInstance();
+        spinner.setOnItemSelectedListener(this);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this,R.layout.spinner_item,gender);
+        spinner.setAdapter(arrayAdapter);
+
+    }
+    @Override
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        Toast.makeText(getApplicationContext(),gender[position] , Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 
     @OnClick(R.id.sign_up_button)
     public void signUp() {
+
         String mFullNameString = mFullNameEditText.getText().toString();
         if (Pattern.matches(fullNameRegex, mFullNameString.trim()) && mFullNameString.length() >= 6) {
 
@@ -108,6 +128,8 @@ public class SignUpActivity extends AppCompatActivity {
         int age = Integer.parseInt(mAge);
         String mWeight = mWeightEditText.getText().toString();
         double weight = Double.parseDouble(mWeight);
+        String gender=spinner.getSelectedItem().toString();
+
         mAuth.createUserWithEmailAndPassword(mEmail, mPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -119,10 +141,12 @@ public class SignUpActivity extends AppCompatActivity {
                     editor.putString(getString(R.string.email_key),mEmail);
                     editor.putString(getString(R.string.password_key),mPassword);
                     editor.putBoolean(getString(R.string.signed_up_key),true);
+                    editor.putString(getString(R.string.gender),gender);
+
                     editor.commit();
                     FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
                     DatabaseReference mDatabaseReference=mFirebaseDatabase.getReference().child("users");
-                    User mUser=new User(mFullNameString,mEmail,mPassword,age,weight);
+                    User mUser=new User(mFullNameString,mEmail,mPassword,age,weight,gender);
                     mDatabaseReference.push().setValue(mUser);
                     finish();
                 }
