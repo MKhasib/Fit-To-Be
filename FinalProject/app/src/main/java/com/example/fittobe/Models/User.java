@@ -11,14 +11,15 @@ public class User {
     private double weight;
     private String gender;
     private List<Exercise> favoriteExercises;
-
-    public User(String fullName, String email, String password, int age, double weight, String gender) {
+public User(){}
+    public User(String fullName, String email, String password, int age, double weight, String gender,List<Exercise> exercises) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.age = age;
         this.weight = weight;
         this.gender = gender;
+        this.favoriteExercises=exercises;
     }
 
     public String getFullName() {

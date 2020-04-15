@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeRecyclerView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        mWorkOutsAdapter = new WorkOutsAdapter(mAllExercises, mContext);
+        mWorkOutsAdapter = new WorkOutsAdapter(mAllExercises, mContext,mSharedPreferences.getString(email_key, null_temp).equals(null_temp),mSharedPreferences.getString(getString(R.string.gender), null_temp).equals(null_temp));
         mRecyclerView.setAdapter(mWorkOutsAdapter);
         mWorkOutsAdapter.setItemClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.log_out:
                 LogOut();
                 break;
+//            case R.id.favorite:
+//                break;
+//            case R.id.all:
+//                break;
             default:
         }
         return super.onOptionsItemSelected(item);
@@ -120,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 mWorkOutsAdapter.notifyDataSetChanged();
             }
         }.execute();
+
     }
 
     private void LogOut() {

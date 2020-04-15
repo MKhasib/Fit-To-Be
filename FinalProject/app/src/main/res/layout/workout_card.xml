@@ -29,7 +29,8 @@
             android:id="@+id/favorite_image_view"
             android:layout_width="@dimen/default_star_size"
             android:layout_height="@dimen/default_star_size"
-            android:src="@drawable/star"
+            android:visibility="gone"
+            android:src="@drawable/not_favorite_male"
             android:scaleType="fitXY" />
 
     </LinearLayout>

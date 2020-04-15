@@ -21,24 +21,25 @@ public class StartUpActivity extends AppCompatActivity {
     @OnClick(R.id.go_to_sign_up_button)
     public void loadSignUp(){
         startActivity(new Intent(this, SignUpActivity.class));
-        finish();
     }
     @BindView(R.id.go_to_sign_in_button)
      Button mGoToSignInButton;
     @OnClick(R.id.go_to_sign_in_button)
     public void loadSignIn(){
         startActivity(new Intent(this, SignInActivity.class));
-        finish();
     }
     @BindView(R.id.try_free_button)
      Button mTryFreeButton;
     @OnClick(R.id.try_free_button)
     public void loadTryFree(){
         SharedPreferences.Editor edit = mSharedPreferences.edit();
-        edit.putBoolean(getString(R.string.logged_in), true);
-        edit.commit();
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+        if (mSharedPreferences.getString(getString(R.string.gender),getString(R.string.null_temp)).equals(getString(R.string.null_temp)))
+        {GenderDialog genderDialog = new GenderDialog(edit);
+        genderDialog.show(getSupportFragmentManager(), getString(R.string.tag));}
+        else{
+            startActivity(new Intent(this, MainActivity.class));
+           finish();
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

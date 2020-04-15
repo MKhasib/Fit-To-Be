@@ -145,13 +145,12 @@ public class SignUpActivity extends AppCompatActivity implements
                     editor.commit();
                     FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
                     DatabaseReference mDatabaseReference=mFirebaseDatabase.getReference().child("users");
-                    User mUser=new User(mFullNameString,mEmail,mPassword,age,weight,gender);
+                    User mUser=new User(mFullNameString,mEmail,mPassword,age,weight,gender,null);
                     mDatabaseReference.push().setValue(mUser);
                     finish();
                 }
                 else{
                     Toast.makeText(getApplicationContext(), R.string.email_exisits_error, Toast.LENGTH_SHORT).show();
-
                 }
             }
         });

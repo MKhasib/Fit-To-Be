@@ -13,12 +13,10 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.fittobe.R;
 
-public class SimpleDialog extends AppCompatDialogFragment {
-    String email_key;
-    String password_key;
+public class GenderDialog extends AppCompatDialogFragment {
     String null_temp;
     SharedPreferences.Editor mEditor;
-    public SimpleDialog(SharedPreferences.Editor editor) {
+    public GenderDialog(SharedPreferences.Editor editor) {
         this.mEditor=editor;
     }
 
@@ -26,25 +24,26 @@ public class SimpleDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder=new    AlertDialog.Builder(getActivity());
-        builder.setTitle(getString(R.string.check_me))
-        .setPositiveButton(getString(R.string.button_ok), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                email_key = getString(R.string.email_key);
-                password_key = getString(R.string.password_key);
-                null_temp = getString(R.string.null_temp);
-                mEditor.putBoolean(getString(R.string.logged_in), false);
-                mEditor.putString(email_key, null_temp);
-                mEditor.putString(password_key, null_temp);
-                mEditor.putString(getString(R.string.gender), null_temp);
-                mEditor.commit();
-                startActivity(new Intent(getActivity(), StartUpActivity.class));
-                getActivity().finish();
-            }
-        }).setNegativeButton(getString(R.string.button_cancel), new DialogInterface.OnClickListener() {
+        builder.setTitle(getString(R.string.choose_gender))
+        .setPositiveButton(getString(R.string.gender), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
+                null_temp = getString(R.string.null_temp);
+                mEditor.putBoolean(getString(R.string.logged_in), true);
+                mEditor.putString(getString(R.string.gender),getString(R.string.gender));
+                mEditor.commit();
+                startActivity(new Intent(getActivity(), MainActivity.class));
+                getActivity().finish();
+            }
+        }).setNegativeButton(getString(R.string.female), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mEditor.putBoolean(getString(R.string.logged_in), true);
+                mEditor.putString(getString(R.string.gender),getString(R.string.female));
+                mEditor.commit();
+                startActivity(new Intent(getActivity(), MainActivity.class));
+                getActivity().finish();
             }
         });
 return builder.create();

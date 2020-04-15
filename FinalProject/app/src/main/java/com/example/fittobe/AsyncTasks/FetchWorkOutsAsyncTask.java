@@ -32,6 +32,7 @@ public class FetchWorkOutsAsyncTask extends AsyncTask<Void, Void, List<Exercise>
     {
         default_type=women;
     }
+
     }
 
     @Override
@@ -44,6 +45,7 @@ public class FetchWorkOutsAsyncTask extends AsyncTask<Void, Void, List<Exercise>
                     Exercise exercise = snapshot.getValue(Exercise.class);
                     exercises.add(exercise);
                 }
+                onPostExecute(exercises);
             }
 
             @Override
@@ -58,5 +60,6 @@ public class FetchWorkOutsAsyncTask extends AsyncTask<Void, Void, List<Exercise>
 
     protected void onPostExecute(List<Exercise> result) {
     this.exercises=result;
+
     }
 }

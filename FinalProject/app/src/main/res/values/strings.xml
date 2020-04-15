@@ -56,4 +56,6 @@
     <string name="workout_id">id</string>
     <string name="gender">Male</string>
     <string name="female">Female</string>
+    <string name="users">users</string>
+    <string name="choose_gender">Choose gender</string>
 </resources>
