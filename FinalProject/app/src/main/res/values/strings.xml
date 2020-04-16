@@ -58,4 +58,11 @@
     <string name="female">Female</string>
     <string name="users">users</string>
     <string name="choose_gender">Choose gender</string>
+    <string name="add_to_favorite">Add To Favorite</string>
+    <string name="removeFromFavorite">Remove From Favorite</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Added to Widget</string>
+    <string name="exercise_key">exercise key</string>
+    <string name="finished">Press me When finished!</string>
+    <string name="good">Great Work!</string>
 </resources>

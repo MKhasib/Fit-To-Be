@@ -38,7 +38,7 @@ public class StartUpActivity extends AppCompatActivity {
         genderDialog.show(getSupportFragmentManager(), getString(R.string.tag));}
         else{
             startActivity(new Intent(this, MainActivity.class));
-           finish();
+            finish();
         }
     }
     @Override

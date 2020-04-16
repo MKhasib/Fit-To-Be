@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fittobe.Models.Exercise;
 import com.example.fittobe.Models.User;
 import com.example.fittobe.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -144,7 +147,7 @@ public class SignUpActivity extends AppCompatActivity implements
 
                     editor.commit();
                     FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
-                    DatabaseReference mDatabaseReference=mFirebaseDatabase.getReference().child("users");
+                    DatabaseReference mDatabaseReference=mFirebaseDatabase.getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                     User mUser=new User(mFullNameString,mEmail,mPassword,age,weight,gender,null);
                     mDatabaseReference.push().setValue(mUser);
                     finish();

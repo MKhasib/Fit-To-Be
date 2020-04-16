@@ -47,7 +47,6 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
         ButterKnife.bind(this);
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference(getString(R.string.users));
         editor = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit();
         mAuth = FirebaseAuth.getInstance();
     }
@@ -61,6 +60,8 @@ public class SignInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     final User[] user = new User[1];
+                    mDatabaseReference = FirebaseDatabase.getInstance().getReference(getString(R.string.users)).child(mAuth.getCurrentUser().getUid());
+
                     mDatabaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

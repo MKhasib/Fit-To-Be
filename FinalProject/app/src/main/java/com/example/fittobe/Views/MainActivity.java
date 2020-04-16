@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,11 +20,15 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import com.example.fittobe.AsyncTasks.FetchFavoriteWorkOutsAsyncTask;
 import com.example.fittobe.AsyncTasks.FetchWorkOutsAsyncTask;
 import com.example.fittobe.Controllers.WorkOutsAdapter;
 import com.example.fittobe.Models.Exercise;
 import com.example.fittobe.R;
+import com.example.fittobe.Widget.ExerciseAppWidgetProvider;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         mContext = getApplicationContext();
         initializeRecyclerView();
-        callTheAsyncTask();
+        callTheAsyncTask(type);
     }
 
     private void initializeRecyclerView() {
@@ -105,31 +112,65 @@ public class MainActivity extends AppCompatActivity {
             case R.id.log_out:
                 LogOut();
                 break;
-//            case R.id.favorite:
-//                break;
-//            case R.id.all:
-//                break;
+            case R.id.favorite:
+//                callFavoriteAsyncTask(mSharedPreferences.getString(email_key, null_temp));
+                Toast.makeText(this,getString(R.string.add_widget),Toast.LENGTH_LONG).show();
+
+                updateWidget(mAllExercises);
+                break;
+            case R.id.all:
+                callTheAsyncTask(type);
+
+                break;
             default:
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void callTheAsyncTask() {
+
+
+    private void callTheAsyncTask(String type) {
         new FetchWorkOutsAsyncTask(type) {
             @Override
             protected void onPostExecute(List<Exercise> result) {
                 super.onPostExecute(result);
                 mAllExercises = result;
+
+
                 mWorkOutsAdapter.setExercises(result);
                 mWorkOutsAdapter.notifyDataSetChanged();
             }
         }.execute();
 
     }
+    void callFavoriteAsyncTask(String email){
+        new FetchFavoriteWorkOutsAsyncTask(email) {
+            @Override
+            protected void onPostExecute(List<Exercise> result) {
+                super.onPostExecute(result);
+                mFavoriteExercises = result;
 
+//                addExercisesToWidget(mAllExercises);
+
+                mWorkOutsAdapter.setExercises(result);
+                mWorkOutsAdapter.notifyDataSetChanged();
+            }
+        }.execute();
+
+    }
     private void LogOut() {
         editor = mSharedPreferences.edit();
         SimpleDialog simpleDialog = new SimpleDialog(editor);
         simpleDialog.show(getSupportFragmentManager(), getString(R.string.tag));
     }
+    private void updateWidget(List<Exercise> e) {
+
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(getApplicationContext());
+        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(
+                new ComponentName(getApplicationContext(), ExerciseAppWidgetProvider.class));
+        ExerciseAppWidgetProvider.updateAppWidget(getApplicationContext(), appWidgetManager, appWidgetIds,e);
+
+
+    }
+
 }

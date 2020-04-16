@@ -67,6 +67,7 @@ public class WorkOutsAdapter extends RecyclerView.Adapter<WorkOutsAdapter.ViewHo
         holder.mNameTextView.setText(e.getName());
         if (!freeVersion) {
 //            holder.mIsFavorite.setVisibility(View.VISIBLE);
+
 //
 //            if (isMale) {
 //
@@ -78,7 +79,9 @@ public class WorkOutsAdapter extends RecyclerView.Adapter<WorkOutsAdapter.ViewHo
 
     @Override
     public int getItemCount() {
+        if (mExercises!=null)
         return mExercises.size();
+        return 0;
     }
 
     public void setExercises(List<Exercise> exercises) {
